@@ -68,3 +68,56 @@ notifier:
     filename: /config/emails.txt
 
 ```
+
+## nginx
+
+auth.conf
+
+```
+server {
+listen 443      ssl;
+listen [::]:443 ssl;
+server_name auth.*;
+
+ssl_certificate /etc/ssl/certs/ssl-cert-snakeoil.pem;
+ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
+
+
+ set $upstream http://127.0.0.1:9091;
+
+    location / {
+        include /etc/nginx/snippets/proxy.conf;
+        proxy_pass $upstream;
+    }
+
+    location = /api/verify {
+        proxy_pass $upstream;
+    }
+
+    location /api/authz/ {
+        proxy_pass $upstream;
+    }
+
+
+}
+```
+red.conf
+ 
+```
+server {
+    listen 443 ssl http2;
+    server_name red.example.com;
+
+    ssl_certificate /etc/ssl/certs/ssl-cert-snakeoil.pem;
+    ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
+
+    include /etc/nginx/snippets/authelia-location.conf;
+
+    location / {
+        include /etc/nginx/snippets/proxy.conf;
+        include /etc/nginx/snippets/authelia-authrequest.conf;
+        proxy_pass http://127.0.0.1:1880;
+    }
+}
+
+```
