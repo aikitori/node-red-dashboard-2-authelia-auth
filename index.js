@@ -25,13 +25,13 @@ module.exports = function (RED) {
         const authelia_user = headers["remote-user"] || null
         if (!authelia_user) {
           console.warn(
-            `${plugin_name}: Session is not authenticated by Authelia Access; no user email detected. See headers: ${JSON.stringify(
+            `${plugin_name}: Session is not authenticated by Authelia; no user detected. See headers: ${JSON.stringify(
               headers
             )}`
           );
         } else {
           console.log(
-            `${plugin_name}: Dashboard interacted with by ${user_email}`
+            `${plugin_name}: Dashboard interacted with by ${authelia_user}`
           );
         }
         user.host = headers["host"] || null;
