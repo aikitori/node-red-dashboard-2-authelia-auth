@@ -15,6 +15,10 @@ A working Authelia instance with the default snippets.
 Refer to the [Authelia Nginx Integration Guide](https://www.authelia.com/integration/proxies/nginx/)
 
 ## Setting Up Authelia
+
+Please read the documentation from Authelia:
+https://www.authelia.com/integration/prologue/get-started/
+
 ### Minimal Docker Compose Configuration
 
 Note: This setup is not secure and should be used for testing purposes only.
