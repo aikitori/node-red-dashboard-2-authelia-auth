@@ -1,23 +1,23 @@
-# Todo ...
+# Node-RED Dashboard with Authelia Authentication
 
-Use Authelia as an auth provider for the Dashboard
+Use [Authelia](https://www.authelia.com/) as an authentication provider for the [Node-RED Dashboard 2](https://github.com/FlowFuse/node-red-dashboard).
 
-Heavely copied from: https://github.com/fullmetal-fred/node-red-dashboard-2-cloudflare-auth/tree/main
+Heavily copied from: fullmetal-fred/node-red-dashboard-2-cloudflare-auth
 Thank you :)
 
+You need an Authelia-protected Node-RED instance.
 
+## Requirements
+A working Authelia instance with the default snippets.
 
-# Requirements
-you need a working Authelia instance with the default snippets.
+## Nginx Snippets
 
-## nginx snippets
+Refer to the [Authelia Nginx Integration Guide](https://www.authelia.com/integration/proxies/nginx/)
 
-https://www.authelia.com/integration/proxies/nginx/
+## Setting Up Authelia
+### Minimal Docker Compose Configuration
 
-## authelia
-
-minimal docker compose. 
-Not Secure!!!!
+Note: This setup is not secure and should be used for testing purposes only.
 
 ```
 
@@ -37,7 +37,9 @@ services:
 
 ```
 
-configuration.yml
+`configuration.yml`
+
+Create a configuration.yml file for Authelia with the following content:
 
 ```
 server:
@@ -69,9 +71,11 @@ notifier:
 
 ```
 
-## nginx
+## Setting Up Nginx
 
-auth.conf
+### `auth.conf`
+
+Create an auth.conf file for the authentication server:
 
 ```
 server {
@@ -101,8 +105,11 @@ ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
 
 }
 ```
-red.conf
- 
+
+### `red.conf`
+
+Create a red.conf file for the Node-RED server:
+
 ```
 server {
     listen 443 ssl http2;
@@ -121,3 +128,5 @@ server {
 }
 
 ```
+
+This setup enables Authelia to act as an authentication provider for the Node-RED Dashboard, securing access through Nginx. Ensure you replace placeholders such as example.com with your actual domain and adjust paths and settings according to your environment.
