@@ -2,7 +2,7 @@
 
 Use [Authelia](https://www.authelia.com/) as an authentication provider for the [Node-RED Dashboard 2](https://github.com/FlowFuse/node-red-dashboard).
 
-Heavily copied from: fullmetal-fred/node-red-dashboard-2-cloudflare-auth
+Heavily copied from: [node-red-dashboard-2-cloudflare-auth](https://github.com/fullmetal-fred/node-red-dashboard-2-cloudflare-auth)
 Thank you :)
 
 You need an Authelia-protected Node-RED instance.
