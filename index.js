@@ -36,7 +36,7 @@ module.exports = function (RED) {
         }
         user.host = headers["host"] || null;
         user.agent = headers["user-agent"] || null;
-        user.user =  authelia_user
+        user.userId =  authelia_user
         user.name =  headers["remote-name"] || null;
         user.email = headers["remote-email"] || null
         user.groups =  headers["remote-groups"] || null;
