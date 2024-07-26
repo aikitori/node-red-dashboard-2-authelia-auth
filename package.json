@@ -1,5 +1,5 @@
 {
-  "name": "node-red-dashboard-2-authelia-auth",
+  "name": "@aikitori/node-red-dashboard-2-authelia-auth",
   "version": "0.0.1",
   "description": "Dashboard Auth with Authelia",
   "main": "index.js",
