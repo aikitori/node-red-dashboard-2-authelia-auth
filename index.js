@@ -39,7 +39,7 @@ module.exports = function (RED) {
         user.userId =  authelia_user
         user.name =  headers["remote-name"] || null;
         user.email = headers["remote-email"] || null
-        user.groups =  headers["remote-groups"] || null;
+        user.groups =  headers["remote-groups"].split(',') || null;
         user.provider = "Authelia";
         msg._client["user"] = user;
         return msg;
