@@ -8,3 +8,6 @@
 - refactor Header keys
 - change user -> userID as unique identifier
 
+0.1.1
+- deserialize user groups
+
