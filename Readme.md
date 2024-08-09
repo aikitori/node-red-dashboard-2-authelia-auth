@@ -1,3 +1,4 @@
+[![Node.js CI](https://github.com/aikitori/node-red-dashboard-2-authelia-auth/actions/workflows/node.js.yml/badge.svg)](https://github.com/aikitori/node-red-dashboard-2-authelia-auth/actions/workflows/node.js.yml)
 # Node-RED Dashboard with Authelia Authentication
 
 Use [Authelia](https://www.authelia.com/) as an authentication provider for the [Node-RED Dashboard 2](https://github.com/FlowFuse/node-red-dashboard).
