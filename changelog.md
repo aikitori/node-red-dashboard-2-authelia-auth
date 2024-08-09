@@ -11,6 +11,3 @@
 0.1.1
 - deserialize user groups
 
-0.1.2
-- optional chaining for groups to prevent exception
-
