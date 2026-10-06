@@ -1,6 +1,6 @@
 {
   "name": "@aikitori/node-red-dashboard-2-authelia-auth",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Dashboard Auth with Authelia",
   "main": "index.js",
   "scripts": {
@@ -21,9 +21,6 @@
     "auth",
     "authentication"
   ],
-  "dependencies": {
-    "@flowfuse/node-red-dashboard": "^1.10"
-  },
   "engines": {
     "node": ">=16.20"
   },

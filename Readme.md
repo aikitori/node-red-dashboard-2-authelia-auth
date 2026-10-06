@@ -9,7 +9,47 @@ Thank you :)
 You need an Authelia-protected Node-RED instance.
 
 ## Requirements
-A working Authelia instance with the default snippets.
+ - Node-RED 3.1 or newer
+ - FlowFuse Dashboard (`@flowfuse/node-red-dashboard`) 1.10 or newer
+ - A working Authelia instance with the default snippets.
+
+## Installation
+
+Install the plugin in your Node-RED user directory (usually `~/.node-red`) or via "Manage palette" in the editor:
+
+```
+npm install @aikitori/node-red-dashboard-2-authelia-auth
+```
+
+Restart Node-RED. Then open the Dashboard 2.0 sidebar in the editor, go to "Client Data" and enable "Authelia".
+
+The user info is added to `msg._client.user`:
+
+```json
+{
+  "host": "red.example.com",
+  "agent": "Mozilla/5.0 ...",
+  "userId": "alice",
+  "name": "Alice",
+  "email": "alice@example.com",
+  "groups": ["admins", "users"],
+  "provider": "Authelia"
+}
+```
+
+If Authelia sends no user, `userId` is `null`.
+
+## Sending messages to a single user
+
+Nodes with "Accept Client Constraints" enabled in the "Client Data" tab only send a message to the connections of the user in `msg._client.user`.
+To send a message to all browser tabs of a user, keep `msg._client.user` and remove `socketId` and `clientId`:
+
+```js
+msg._client = { user: msg._client.user };
+return msg;
+```
+
+Such messages are not stored in the Dashboard data store, so they are not shown to other users when they connect later.
 
 ## Nginx Snippets
 
